@@ -74,6 +74,24 @@ public class SearchTest {
     }
 
     @Test
+    public void testSearchArtistkaja() {
+        // TODO
+        // kkbox.openSearch().search("linkin park").checkArtistResult("Linkin Park (聯合公園)");
+
+        // open search
+        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_global_search")), TIMEOUT).click();
+
+        // search artist "linkin park"
+        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "search_src_text")), TIMEOUT).setText("kajagoogoo");
+        mDevice.pressEnter();
+        mDevice.wait(Until.findObject(By.text("ARTIST")), TIMEOUT).click();
+
+        // check search result
+        assertTrue(mDevice.wait(Until.hasObject(By.text("kajagoogoo(卡加咕咕合唱團)")), TIMEOUT));
+    }
+
+
+    @Test
     public void testSearchSong() {
         // TODO
         // kkbox.openSearch().search("numb encore").checkSongResult("Numb/Encore");
@@ -88,5 +106,21 @@ public class SearchTest {
 
         // check search result
         assertTrue(mDevice.wait(Until.hasObject(By.text("Numb/Encore")), TIMEOUT));
+    }
+    @Test
+    public void testSearchSongtooshy() {
+        // TODO
+        // kkbox.openSearch().search("numb encore").checkSongResult("Numb/Encore");
+
+        // open search
+        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_global_search")), TIMEOUT).click();
+
+        // search artist "linkin park"
+        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "search_src_text")), TIMEOUT).setText("too shy");
+        mDevice.pressEnter();
+        mDevice.wait(Until.findObject(By.text("SONG")), TIMEOUT).click();
+
+        // check search result
+        assertTrue(mDevice.wait(Until.hasObject(By.text("too shy")), TIMEOUT));
     }
 }
