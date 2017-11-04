@@ -26,4 +26,7 @@ public class KKPage {
 
         return new KKSearchPage(this.device);
     }
+
+    public KKPage is(Class<KKPage> kkPageClass) {
+    }
 }
