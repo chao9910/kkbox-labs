@@ -43,10 +43,24 @@ public class SearchTest {
              .is(KKSearchPage.class).checkArtistResult("Linkin Park (聯合公園)");
     }
 
+
+    @Test
+    public void testSearchArtistkajagoogoo() {
+        kkbox.is(KKPage.class).openSearch()
+                .is(KKSearchPage.class).search("kajagoogoo")
+                .is(KKSearchPage.class).checkArtistResult("kajagoogoo");
+    }
+
     @Test
     public void testSearchSong() {
         kkbox.is(KKPage.class).openSearch()
              .is(KKSearchPage.class).search("numb encore")
              .is(KKSearchPage.class).checkSongResult("Numb/Encore");
+    }
+    @Test
+    public void testSearchSongtooshy() {
+        kkbox.is(KKPage.class).openSearch()
+                .is(KKSearchPage.class).search("too shy")
+                .is(KKSearchPage.class).checkSongResult("too shy");
     }
 }
